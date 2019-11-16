@@ -45,8 +45,22 @@ fission fn create --spec --name hello2 --env nodejsv2 --pkg dummy-2 --entrypoint
 
 fission spec apply
 
+set +x
+
+echo ""
+
+echo "Test function hello1"
 fission fn test --name hello1
+
+echo ""
+
+echo "Test function hello2"
 fission fn test --name hello2
+
+echo ""
+echo ""
+
+set -x
 
 fission spec destroy
 

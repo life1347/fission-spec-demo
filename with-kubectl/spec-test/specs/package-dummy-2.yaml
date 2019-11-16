@@ -1,0 +1,19 @@
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: dummy-2
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+    type: url
+    url: https://raw.githubusercontent.com/life1347/fission-spec-demo/master/with-kubectl/fn.zip
+  environment:
+    name: nodejsv2
+    namespace: default
+  source:
+    checksum: {}
+status:
+  buildstatus: none
+  lastUpdateTimestamp: "2019-11-16T13:58:59.018778Z"

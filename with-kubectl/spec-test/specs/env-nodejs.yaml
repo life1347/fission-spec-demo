@@ -1,0 +1,14 @@
+apiVersion: fission.io/v1
+kind: Environment
+metadata:
+  creationTimestamp: null
+  name: nodejs
+  namespace: default
+spec:
+  builder: {}
+  keeparchive: false
+  poolsize: 3
+  resources: {}
+  runtime:
+    image: fission/node-env:1.6.0
+  version: 1

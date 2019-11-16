@@ -14,8 +14,6 @@ fi
 
 mkdir spec-test
 
-cp -r nodejs-example spec-test/
-
 pushd spec-test
 
 # create a spec directory with the same deploy id
@@ -42,8 +40,22 @@ fission fn create --spec --name hello2 --env nodejsv2 --pkg dummy-2 --entrypoint
 pushd specs
 ls -1 | grep yaml | grep -v 'fission-deployment-config.yaml' | xargs -I@ kubectl -n default apply -f @
 
+set +x
+
+echo ""
+
+echo "Test function hello1"
 fission fn test --name hello1
+
+echo ""
+
+echo "Test function hello2"
 fission fn test --name hello2
+
+echo ""
+echo ""
+
+set -x
 
 ls -1 | grep yaml | grep -v 'fission-deployment-config.yaml' | xargs -I@ kubectl -n default delete -f @
 popd
