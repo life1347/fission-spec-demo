@@ -21,7 +21,7 @@ pushd spec-test
 fission spec init --deployid ${id}
 
 # create a v1 interface environment (only supports single file function)
-fission env create --spec --name nodejs --image fission/node-env:1.6.0 --period 5
+fission env create --spec --name nodejs --image fission/node-env:1.7.0-rc.1 --period 5
 
 # create a package with single source file function
 fission pkg create --spec --name dummy-1 --env nodejs --code \
@@ -37,7 +37,7 @@ popd
 mv nodejs-example/fn.zip .
 
 # create a v2 interface environment (supports to load function with given entrypoint)
-fission env create --spec --name nodejsv2 --image fission/node-env:1.6.0 --builder fission/node-builder:1.6.0 --version 2  --period 5
+fission env create --spec --name nodejsv2 --image fission/node-env:1.7.0-rc.1 --builder fission/node-builder:1.7.0-rc.1 --version 2  --period 5
 
 fission pkg create --spec --name dummy-2 --env nodejsv2 --deploy fn.zip
 
