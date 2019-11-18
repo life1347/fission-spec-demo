@@ -25,7 +25,7 @@ fission env create --spec --name nodejs --image fission/node-env:1.6.0 --period 
 
 # create a package with single source file function
 fission pkg create --spec --name dummy-1 --env nodejs --code \
-    https://raw.githubusercontent.com/fission/fission/master/examples/nodejs/hello.js --keepurl
+    https://raw.githubusercontent.com/fission/fission/master/examples/nodejs/hello.js
 
 fission fn create --spec --name hello1 --env nodejs --pkg dummy-1
 
@@ -46,6 +46,11 @@ fission fn create --spec --name hello2 --env nodejsv2 --pkg dummy-2 --entrypoint
 fission spec apply
 
 set +x
+
+echo ""
+
+echo "Wait for environment image pulling"
+sleep 15
 
 echo ""
 
